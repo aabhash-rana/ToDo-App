@@ -3,12 +3,12 @@ import "./App.css";
 // TODO: import the Item component
 // TODO: import the Header component
 import Item from "./components/Item";
-import Header from "./components/Header";
+import Header from "./components/Header"; // importing the components
 
 
 function App() {
   // State Hook - `useState`
-  const initialValue = {id :0,value : "" }
+  const initialValue = {id :0,value : "" } // initializing an inital value
   const [newItem, setNewItem] = useState(initialValue);
   const [items, setItems] = useState([]);
 
@@ -23,18 +23,18 @@ function App() {
   */
   function setNewItemList(e) {
     setNewItem({
-      id : Math.floor(Math.random() * 100) ,
+      id : Math.floor(Math.random() * 100) , // this will create unique id and value when the input is changed
       value : e.target.value,
     });
   }
-  function generate_a_random_number() {
+  function generate_a_random_number() {  // function to generate random numbers
     return Math.floor(Math.random() * 100)
   }
 
 
   function addItem() {
     if (newItem){
-      setItems([...items,{id : generate_a_random_number(), value : newItem}])
+      setItems([...items,{id : generate_a_random_number(), value : newItem}])  // adding items
     }
     setNewItem(initialValue);
    
@@ -53,14 +53,15 @@ function App() {
   return (
     <div className="app">
       {/* TODO: Add the Header component */}
-      <Header/>
+      
+      <Header/>  
 
       <input
         type="text"
         placeholder="Add an item..."
         value={newItem.value}
         // onChange={}  TODO: complete the onChange to call the setNewItem hook. 
-        onChange={(e) => setNewItemList(e)}
+        onChange={(e) => setNewItemList(e)} //calling the setnewitem function when changes are made
       />
 
       {/* TODO: Add a button with onClick that calls the addItem() */}
@@ -72,10 +73,10 @@ function App() {
                     i. use ❌ as the content for your delete button 
                     ii. use className="delete-button" also */}
   
-        {items.map((item) => { return(
-          <div>
+        {items.map((item) => { return(  // looping through all the lists 
+          <div> 
             <Item
-            item ={item.value}
+            item ={item.value}   
              ></Item>
             
              <button
